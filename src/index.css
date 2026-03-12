@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gold: #c5a059;
+  --color-gold-dark: #8e6d31;
+}
+
+@layer base {
+  html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+  }
+  
+  body {
+    /* ФОНОВАЯ КАРТИНКА (ГЛАВНАЯ) */
+    background-image: url('https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=2000');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #111; /* Запасной цвет */
+    @apply text-white;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, #c5a059 0%, #8e6d31 100%);
+}
+
+.main-wrapper {
+  @apply max-w-[1440px] mx-auto min-h-screen relative shadow-[0_0_100px_rgba(0,0,0,0.9)];
+  /* Полупрозрачный черный слой поверх фото, чтобы контент был виден */
+  background: rgba(15, 15, 15, 0.85); 
+  backdrop-blur: 8px;
+}
+
+section {
+  @apply bg-transparent;
+}
+
+.before-after-container {
+  @apply relative w-full h-[600px] overflow-hidden rounded-sm border border-white/10 shadow-2xl;
+}
+
+.slider-handle {
+  @apply absolute top-0 left-1/2 w-[2px] h-full bg-[#c5a059] z-20 cursor-ew-resize -translate-x-1/2;
+}
+
+.slider-button {
+  @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-[#c5a059] rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(197,160,89,0.4)];
+}
+
+.quiz-option {
+  @apply border border-white/10 p-6 text-center cursor-pointer transition-all duration-300 flex flex-col items-center justify-center gap-4 bg-black/40 backdrop-blur-md hover:border-gold/50;
+}
+
+.quiz-option.active {
+  @apply border-gold bg-gold/10;
+}
